@@ -1,0 +1,7 @@
+@use "./styles/fonts" as fonts;
+@use "./styles/variables" as var;
+
+body {
+  font-family: var.$font-geometria;
+  font-weight: var.$fw-regular;
+}

@@ -1,0 +1,175 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixin" as mixins;
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2rem 1rem 0;
+  margin: 0 auto;
+  gap: 2rem;
+
+  @include mixins.tablet {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem 0;
+  }
+
+  @include mixins.mobile {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0rem;
+  }
+
+  &_leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mixins.tablet {
+      width: 100%;
+    }
+
+    @include mixins.mobile {
+      width: 100%;
+      gap: 0.8rem;
+    }
+
+    &_personalInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include mixins.mobile {
+        gap: 0.8rem;
+      }
+    }
+  }
+
+  &_rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mixins.tablet {
+      width: 100%;
+    }
+
+    @include mixins.mobile {
+      width: 100%;
+      gap: 0.8rem;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .companyInput {
+      flex: 1;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+
+    .uploadButton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      border-radius: 4px;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+
+    @include mixins.tablet {
+      gap: 0.8rem;
+    }
+
+    @include mixins.mobile {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      min-width: 0;
+
+      @include mixins.mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  label {
+    font-weight: var.$fw-bold;
+    font-family: var.$font-gilroy;
+    color: var.$form_txt_color;
+    margin-bottom: 0.3rem;
+
+    @include mixins.tablet {
+      font-size: 15px;
+    }
+
+    @include mixins.mobile {
+      font-size: 14px;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var.$form_bg_color;
+    box-sizing: border-box;
+
+    @include mixins.tablet {
+      padding: 0.5rem;
+      font-size: 15px;
+    }
+
+    @include mixins.mobile {
+      padding: 0.6rem;
+      font-size: 14px;
+    }
+
+    &:focus {
+      outline: 2px solid var.$primary-color;
+    }
+  }
+
+  .importantField {
+    color: red;
+  }
+
+  .submitButton {
+    width: 100%;
+    color: red;
+    border: none;
+  }
+
+  input.postIndexInput {
+    width: 50%;
+
+    @include mixins.tablet {
+      width: 50%;
+    }
+
+    @include mixins.mobile {
+      width: 100%;
+    }
+  }
+}

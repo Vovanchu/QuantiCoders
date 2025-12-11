@@ -1,0 +1,22 @@
+@use "./variables" as var;
+
+// Mobile first (до 480px)
+@mixin mobile {
+  @media (max-width: var.$breakpoint-mobile) {
+    @content;
+  }
+}
+
+// Tablet (до 768px)
+@mixin tablet {
+  @media (max-width: var.$breakpoint-tablet) {
+    @content;
+  }
+}
+
+// Desktop (від 1200px)
+@mixin desktop {
+  @media (min-width: var.$breakpoint-desktop) {
+    @content;
+  }
+}

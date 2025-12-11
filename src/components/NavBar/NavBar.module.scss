@@ -1,0 +1,203 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixin" as mixins;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(54, 59, 94, 1) 0%,
+    rgba(61, 90, 140, 1) 100%
+  );
+  color: white;
+  position: relative;
+
+  @include mixins.tablet {
+    padding: 1rem;
+  }
+
+  @include mixins.mobile {
+    padding: 0.8rem;
+  }
+
+  &_logo {
+    display: flex;
+    align-items: center;
+
+    &_img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      transition: all 0.3s;
+
+      @include mixins.tablet {
+        width: 60px;
+        height: 60px;
+      }
+
+      @include mixins.mobile {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  &_section {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    .nav_list {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include mixins.mobile {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .nav_item {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+
+        &_active {
+          color: var.$secondary-color;
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        &:hover {
+          color: var.$secondary-color;
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    &.nav_section_open {
+      @include mixins.mobile {
+        max-height: 500px;
+      }
+    }
+  }
+
+  &_auth_actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+
+    &_link {
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+
+      &.login {
+        background: transparent;
+        border: 1px solid white;
+        color: white;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &.signup {
+        background: white;
+        color: rgba(61, 90, 140, 1);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    span {
+      color: white;
+    }
+
+    @include mixins.mobile {
+      margin-top: 2rem;
+      flex-direction: row;
+      gap: 0.5rem;
+
+      &_link {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Бургер-меню */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 100;
+
+  span {
+    display: block;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+
+  @include mixins.mobile {
+    display: flex;
+  }
+}
+
+/* Мобільна навігація */
+.nav_section {
+  @include mixins.mobile {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(54, 59, 94, 1) 0%,
+      rgba(61, 90, 140, 1) 100%
+    );
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    flex-direction: column;
+    padding: 0;
+    z-index: 99;
+
+    &.nav_section_open {
+      max-height: 600px;
+      padding: 1rem 0;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixin" as mixins;
+
+.title {
+  font-family: var.$font-gilroy;
+  font-weight: var.$fw-extrabold;
+}
+
+.text {
+  font-family: var.$font-geometria;
+  font-weight: var.$fw-light;
+}

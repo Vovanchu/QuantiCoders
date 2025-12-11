@@ -1,0 +1,439 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixin" as mixin;
+
+.donation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+
+  &__title {
+    color: var.$form_primary_color;
+    font-family: var.$font-gilroy;
+    font-weight: var.$fw-extrabold;
+    font-size: 42px;
+    text-align: center;
+    margin: 0;
+
+    @include mixin.tablet {
+      font-size: 36px;
+    }
+
+    @include mixin.mobile {
+      font-size: 32px;
+    }
+  }
+
+  &__description {
+    color: var.$form_primary_color;
+    font-family: var.$font-gilroy;
+    font-weight: var.$fw-light;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+
+    @include mixin.tablet {
+      font-size: 16px;
+    }
+
+    @include mixin.mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__types {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    @include mixin.tablet {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    @include mixin.mobile {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  &__type {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    @include mixin.tablet {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @include mixin.mobile {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  &__typeButton {
+    padding: 1rem;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: #fff;
+    transition: background 0.3s ease-in-out;
+    opacity: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+
+    @include mixin.tablet {
+      font-size: 28px;
+    }
+
+    @include mixin.mobile {
+      font-size: 24px;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__typeIcon {
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.4;
+    transition: filter 0.3s, opacity 0.3s;
+    font-size: 32px;
+
+    .donation__typeButton:hover &,
+    .donation__typeButton--active & {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    @include mixin.mobile {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__typeLabel {
+    font-family: var.$font-gilroy;
+    font-size: 14px;
+    color: var.$form_primary_color;
+    text-align: center;
+
+    @include mixin.mobile {
+      font-size: 13px;
+    }
+  }
+
+  &__payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5em;
+    margin: 2rem 10px;
+    border: 1px solid #e6edf5;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+
+    @include mixin.tablet {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    @include mixin.mobile {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  &__paymentMethodsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mixin.tablet {
+      width: 100%;
+    }
+
+    @include mixin.mobile {
+      width: 100%;
+    }
+  }
+
+  &__sectionTitle {
+    color: #b9bdc4;
+    font-family: var.$font-gilroy;
+    font-weight: var.$fw-extrabold;
+    font-size: 14px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+
+    @include mixin.tablet {
+      font-size: 14px;
+    }
+
+    @include mixin.mobile {
+      font-size: 13px;
+      text-align: center;
+    }
+  }
+
+  &__paymentMethods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @include mixin.tablet {
+      gap: 0.8rem;
+    }
+
+    @include mixin.mobile {
+      gap: 0.6rem;
+      justify-content: center;
+    }
+  }
+
+  &__paymentMethod {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+    min-width: 80px;
+    max-width: 150px;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1px solid #e6edf5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+    background-color: #c5d6e7;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    opacity: 0.4;
+
+    @include mixin.tablet {
+      flex: 1 1 150px;
+      min-width: 70px;
+      max-width: 130px;
+      min-height: 75px;
+      padding: 0.9rem;
+    }
+
+    @include mixin.mobile {
+      flex: 1 1 120px;
+      min-width: 60px;
+      max-width: 110px;
+      min-height: 70px;
+      padding: 0.7rem;
+    }
+
+    &:hover,
+    &--active {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      opacity: 1;
+    }
+
+    &:hover {
+      border-color: #000;
+    }
+  }
+
+  &__paymentIcon {
+    font-size: 28px;
+    text-align: center;
+
+    @include mixin.tablet {
+      font-size: 26px;
+    }
+
+    @include mixin.mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__paymentLabel {
+    margin-top: auto;
+    color: #fff;
+    font-family: var.$font-geometria;
+    font-weight: var.$fw-regular;
+    font-size: 10px;
+    text-align: center;
+
+    @include mixin.tablet {
+      font-size: 10px;
+    }
+
+    @include mixin.mobile {
+      font-size: 9px;
+    }
+  }
+
+  &__cardForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1 1 200px;
+
+    @include mixin.tablet {
+      width: 100%;
+    }
+
+    @include mixin.mobile {
+      width: 100%;
+      gap: 0.8rem;
+    }
+  }
+
+  &__wrapper {
+    background-color: #c5d6e7;
+    padding: 1rem;
+    border-radius: 20px;
+
+    @include mixin.tablet {
+      padding: 1rem;
+    }
+
+    @include mixin.mobile {
+      padding: 0.8rem;
+    }
+  }
+
+  &__fieldCard {
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+
+    @include mixin.tablet {
+      padding: 0.9rem;
+    }
+
+    @include mixin.mobile {
+      padding: 0.7rem;
+    }
+  }
+
+  &__label {
+    color: #fff;
+    font-family: var.$font-gilroy;
+    font-weight: var.$fw-extrabold;
+    font-size: 14px;
+    text-align: left;
+
+    @include mixin.tablet {
+      font-size: 13px;
+    }
+
+    @include mixin.mobile {
+      font-size: 12px;
+    }
+  }
+
+  &__cardNumber {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 10px;
+
+    @include mixin.tablet {
+      gap: 0.8rem;
+    }
+
+    @include mixin.mobile {
+      gap: 0.5rem;
+    }
+  }
+
+  &__cardInput {
+    width: 100%;
+    max-width: 50px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+
+    @include mixin.tablet {
+      max-width: 50px;
+      padding: 0.5rem;
+    }
+
+    @include mixin.mobile {
+      max-width: 100%;
+      padding: 0.4rem 0.3rem;
+      font-size: 14px;
+    }
+
+    &::placeholder {
+      color: #fff;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    @include mixin.tablet {
+      gap: 0.8rem;
+    }
+
+    @include mixin.mobile {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    @include mixin.tablet {
+      padding: 0.9rem;
+    }
+
+    @include mixin.mobile {
+      padding: 0.7rem;
+      width: 90%;
+    }
+  }
+
+  &__input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+
+    @include mixin.tablet {
+      padding: 0.5rem;
+    }
+
+    @include mixin.mobile {
+      padding: 0.5rem;
+      font-size: 14px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
